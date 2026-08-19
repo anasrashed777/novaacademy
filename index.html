@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Academy</title>
+<meta name="description" content="A private academy. By invitation only.">
+<meta property="og:title" content="Nova Academy">
+<meta property="og:description" content="A private academy. By invitation only.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23070B14%22%2F%3E%3Cpath%20d%3D%22M32%208%20C34.6%2019%2038.6%2023%2050%2026%20C38.6%2029%2034.6%2033%2032%2044%20C29.4%2033%2025.4%2029%2014%2026%20C25.4%2023%2029.4%2019%2032%208%20Z%22%20fill%3D%22%23E8C57C%22%20transform%3D%22rotate(12%2032%2026)%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2250%22%20r%3D%224%22%20fill%3D%22%23F4F2EB%22%2F%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2254%22%20r%3D%223%22%20fill%3D%22%23F4F2EB%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Archivo:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#070B14; --surface:#0E1524; --star:#F4F2EB;
+    --gold:#E8C57C; --papaya:#FF7A3D; --dust:#8CA3C8; --line:#1A2336;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--night); color:var(--star);
+    font-family:'Archivo',system-ui,sans-serif; font-weight:300;
+    overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+  #sky{position:fixed; inset:0; z-index:0; pointer-events:none}
+  main{position:relative; z-index:1}
+  section{
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center;
+    padding:18vh 24px;
+  }
+  .eyebrow{
+    font-size:11px; letter-spacing:.42em; text-transform:uppercase;
+    color:var(--dust); font-weight:500;
+  }
+  .mark{width:96px; height:96px; margin-bottom:40px}
+  .mark .bones{stroke:var(--star)}
+  .mark .node{fill:var(--star)}
+  .mark .nova{fill:var(--gold)}
+  h1{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 0;
+    font-weight:400; font-size:clamp(40px,7.5vw,84px);
+    letter-spacing:.14em; margin:28px 0 10px;
+  }
+  .arabic{
+    font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:300;
+    font-size:clamp(20px,3vw,30px); color:var(--gold);
+    letter-spacing:.08em; margin-bottom:34px;
+  }
+  .q{
+    font-family:'Fraunces',serif; font-style:italic;
+    font-variation-settings:'opsz' 100,'SOFT' 60,'WONK' 1;
+    font-weight:340; font-size:clamp(28px,4.6vw,52px);
+    line-height:1.28; max-width:19em; color:var(--star);
+  }
+  .q .dim{color:var(--dust)}
+  .answer h2{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 144,'SOFT' 50,'WONK' 1;
+    font-weight:420; font-size:clamp(32px,5.4vw,62px);
+    line-height:1.2; max-width:16em;
+  }
+  .answer h2 em{font-style:normal; color:var(--papaya)}
+  .answer p{
+    margin-top:34px; max-width:34em; color:var(--dust);
+    font-size:clamp(15px,1.7vw,18px); line-height:1.9; letter-spacing:.02em;
+  }
+  .door p.big{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 120,'SOFT' 40,'WONK' 0;
+    font-weight:380; font-size:clamp(26px,4vw,44px); line-height:1.4;
+  }
+  .door .no-app{
+    margin-top:22px; color:var(--dust); font-size:15px;
+    letter-spacing:.14em; text-transform:uppercase; font-weight:400;
+  }
+  .door .whisper{
+    margin-top:64px; font-family:'Fraunces',serif; font-style:italic;
+    font-variation-settings:'opsz' 60,'SOFT' 80,'WONK' 1;
+    color:var(--gold); font-size:17px; opacity:.85;
+  }
+  .constellation-divider{margin:0 auto; opacity:.6}
+  footer{
+    position:relative; z-index:1; text-align:center;
+    padding:60px 24px 44px; color:var(--dust);
+    font-size:11px; letter-spacing:.34em; text-transform:uppercase;
+    font-weight:400;
+  }
+  footer .ar{
+    font-family:'IBM Plex Sans Arabic',sans-serif; letter-spacing:0;
+    font-size:13px;
+  }
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity 1.15s ease,transform 1.15s ease}
+  .reveal.lit{opacity:1; transform:none}
+  .scroll-cue{
+    position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+    width:1px; height:52px; overflow:hidden;
+  }
+  .scroll-cue::after{
+    content:''; position:absolute; left:0; top:-40%; width:1px; height:40%;
+    background:linear-gradient(to bottom,transparent,var(--gold));
+    animation:fall 2.6s ease-in-out infinite;
+  }
+  @keyframes fall{ 60%,100%{top:100%} }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{transition:none; opacity:1; transform:none}
+    .scroll-cue::after{animation:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<main>
+
+  <section id="hero">
+    <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Nova Academy mark">
+      <g fill="none" class="bones" stroke-width="2" stroke-linecap="round">
+        <path d="M16 52 L16 12"/><path d="M16 12 L48 52"/><path d="M48 52 L48 24"/>
+      </g>
+      <g>
+        <circle class="node" cx="16" cy="52" r="3"/>
+        <circle class="node" cx="16" cy="12" r="2.4"/>
+        <circle class="node" cx="32" cy="32" r="1.7"/>
+        <circle class="node" cx="48" cy="52" r="3"/>
+        <path class="nova" d="M48 2 C49.6 7.4 51.6 9.4 57 11 C51.6 12.6 49.6 14.6 48 20 C46.4 14.6 44.4 12.6 39 11 C44.4 9.4 46.4 7.4 48 2 Z" transform="rotate(12 48 11)"/>
+      </g>
+    </svg>
+    <p class="eyebrow">A private academy &middot; By invitation only</p>
+    <h1>NOVA&nbsp;ACADEMY</h1>
+    <p class="arabic" lang="ar" dir="rtl">نوفا</p>
+    <div class="scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <section>
+    <p class="q reveal">Will the world be the same<br>after three more years<br><span class="dim">at this speed?</span></p>
+  </section>
+
+  <section>
+    <p class="q reveal">Do institutions designed in the 1950s<br>still fit the world their graduates<br><span class="dim">will actually enter?</span></p>
+  </section>
+
+  <section class="answer">
+    <h2 class="reveal">A <em>new breed</em> of preparation for youth.</h2>
+    <p class="reveal">Not twelve years of school and four of university. The real
+    world, learned from inside it: by making, by doing, by building,
+    with the people who run it.</p>
+  </section>
+
+  <section class="door">
+    <svg class="constellation-divider reveal" width="180" height="40" viewBox="0 0 180 40" aria-hidden="true">
+      <g fill="none" stroke="#8CA3C8" stroke-width="1" opacity=".55">
+        <path d="M14 28 L58 14 L104 24 L166 10"/>
+      </g>
+      <g fill="#F4F2EB">
+        <circle cx="14" cy="28" r="2.4"/><circle cx="58" cy="14" r="1.7"/>
+        <circle cx="104" cy="24" r="2"/>
+      </g>
+      <path fill="#E8C57C" d="M166 2 C167 6.4 168.6 8 173 9 C168.6 10 167 11.6 166 16 C165 11.6 163.4 10 159 9 C163.4 8 165 6.4 166 2 Z"/>
+    </svg>
+    <p class="big reveal" style="margin-top:56px">Enrollment is by invitation.</p>
+    <p class="no-app reveal">There is no application</p>
+    <p class="whisper reveal">If you are meant to find us, you already have.</p>
+  </section>
+
+</main>
+<footer>
+  NOVA&nbsp;ACADEMY &nbsp;&middot;&nbsp; <span class="ar" lang="ar" dir="rtl">نوفا</span> &nbsp;&middot;&nbsp; United&nbsp;Arab&nbsp;Emirates
+</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('sky'), x=c.getContext('2d'),
+      DPR=Math.min(window.devicePixelRatio||1,2), stars=[], W=0, H=0,
+      reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      meteor=null, nextMeteor=6000+Math.random()*6000, last=0;
+  function size(){
+    W=window.innerWidth; H=window.innerHeight;
+    c.width=W*DPR; c.height=H*DPR; c.style.width=W+'px'; c.style.height=H+'px';
+    x.setTransform(DPR,0,0,DPR,0,0); seed();
+  }
+  function seed(){
+    stars=[];
+    var n=Math.round(W*H/9000);
+    for(var i=0;i<n;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()<.85?Math.random()*.9+.35:Math.random()*1.5+.9,
+        p:Math.random()*Math.PI*2, s:.4+Math.random()*1.1,
+        gold:Math.random()<.06
+      });
+    }
+  }
+  function frame(t){
+    var dt=t-last; last=t;
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){
+      var st=stars[i],
+          tw=reduced?0.75:(0.55+0.45*Math.sin(st.p+t/1000*st.s));
+      x.globalAlpha=Math.max(.08,tw*.9);
+      x.fillStyle=st.gold?'#E8C57C':'#F4F2EB';
+      x.beginPath(); x.arc(st.x,st.y,st.r,0,7); x.fill();
+    }
+    if(!reduced){
+      nextMeteor-=dt;
+      if(nextMeteor<=0 && !meteor){
+        var sx=Math.random()*W*.7+W*.15, sy=Math.random()*H*.3;
+        meteor={x:sx,y:sy,vx:5+Math.random()*3,vy:2.4+Math.random()*1.4,life:1};
+        nextMeteor=9000+Math.random()*9000;
+      }
+      if(meteor){
+        meteor.x+=meteor.vx; meteor.y+=meteor.vy; meteor.life-=.016;
+        if(meteor.life>0){
+          var g=x.createLinearGradient(meteor.x-meteor.vx*12,meteor.y-meteor.vy*12,meteor.x,meteor.y);
+          g.addColorStop(0,'rgba(232,197,124,0)');
+          g.addColorStop(1,'rgba(232,197,124,'+(0.7*meteor.life)+')');
+          x.globalAlpha=1; x.strokeStyle=g; x.lineWidth=1.2;
+          x.beginPath();
+          x.moveTo(meteor.x-meteor.vx*12,meteor.y-meteor.vy*12);
+          x.lineTo(meteor.x,meteor.y); x.stroke();
+        } else meteor=null;
+      }
+    }
+    x.globalAlpha=1;
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',size);
+  size(); requestAnimationFrame(frame);
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('lit'); });
+  },{threshold:.25});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
