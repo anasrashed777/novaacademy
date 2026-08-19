@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nova Academy</title>
-<meta name="description" content="A private academy. By invitation only.">
+<meta name="description" content="A private academy. By invitation only. Preparation for the real world, by the real world.">
 <meta property="og:title" content="Nova Academy">
 <meta property="og:description" content="A private academy. By invitation only.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23070B14%22%2F%3E%3Cpath%20d%3D%22M32%208%20C34.6%2019%2038.6%2023%2050%2026%20C38.6%2029%2034.6%2033%2032%2044%20C29.4%2033%2025.4%2029%2014%2026%20C25.4%2023%2029.4%2019%2032%208%20Z%22%20fill%3D%22%23E8C57C%22%20transform%3D%22rotate(12%2032%2026)%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2250%22%20r%3D%224%22%20fill%3D%22%23F4F2EB%22%2F%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2254%22%20r%3D%223%22%20fill%3D%22%23F4F2EB%22%2F%3E%3C%2Fsvg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23070B14%22%2F%3E%3Cg%20transform%3D%22rotate(8%2032%2032)%22%20fill%3D%22%23E8C57C%22%3E%3Cpath%20d%3D%22M32%206%20L35%2028%20L32%2032%20L29%2028%20Z%22%2F%3E%3Cpath%20d%3D%22M32%2058%20L29%2036%20L32%2032%20L35%2036%20Z%22%2F%3E%3Cpath%20d%3D%22M6%2032%20L28%2029%20L32%2032%20L28%2035%20Z%22%2F%3E%3Cpath%20d%3D%22M58%2032%20L36%2035%20L32%2032%20L36%2029%20Z%22%2F%3E%3Cpath%20d%3D%22M14%2014%20L29%2029%20L32%2032%20L26%2026%20Z%22%20opacity%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M50%2050%20L35%2035%20L32%2032%20L38%2038%20Z%22%20opacity%3D%22.7%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2246%22%20cy%3D%2216%22%20r%3D%223%22%20fill%3D%22%23FF7A3D%22%2F%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Archivo:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#070B14; --surface:#0E1524; --star:#F4F2EB;
-    --gold:#E8C57C; --papaya:#FF7A3D; --dust:#8CA3C8; --line:#1A2336;
+    --night:#070B14; --surface:#0D1424; --surface2:#111A2E;
+    --star:#F4F2EB; --gold:#E8C57C; --papaya:#FF7A3D;
+    --dust:#8CA3C8; --line:#1C2740; --dim:#5E6C87;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -23,91 +24,146 @@
     background:var(--night); color:var(--star);
     font-family:'Archivo',system-ui,sans-serif; font-weight:300;
     overflow-x:hidden; -webkit-font-smoothing:antialiased;
+    line-height:1.7;
   }
-  #sky{position:fixed; inset:0; z-index:0; pointer-events:none}
-  main{position:relative; z-index:1}
-  section{
-    min-height:100vh; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center;
-    padding:18vh 24px;
+  #sky{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55}
+  main{position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:0 22px}
+  .label{
+    font-size:11px; letter-spacing:.4em; text-transform:uppercase;
+    color:var(--papaya); font-weight:600; margin-bottom:18px;
   }
-  .eyebrow{
-    font-size:11px; letter-spacing:.42em; text-transform:uppercase;
-    color:var(--dust); font-weight:500;
-  }
-  .mark{width:96px; height:96px; margin-bottom:40px}
-  .mark .bones{stroke:var(--star)}
-  .mark .node{fill:var(--star)}
-  .mark .nova{fill:var(--gold)}
-  h1{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 0;
-    font-weight:400; font-size:clamp(40px,7.5vw,84px);
-    letter-spacing:.14em; margin:28px 0 10px;
-  }
-  .arabic{
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:300;
-    font-size:clamp(20px,3vw,30px); color:var(--gold);
-    letter-spacing:.08em; margin-bottom:34px;
-  }
-  .q{
-    font-family:'Fraunces',serif; font-style:italic;
-    font-variation-settings:'opsz' 100,'SOFT' 60,'WONK' 1;
-    font-weight:340; font-size:clamp(28px,4.6vw,52px);
-    line-height:1.28; max-width:19em; color:var(--star);
-  }
-  .q .dim{color:var(--dust)}
-  .answer h2{
+  .display{
     font-family:'Fraunces',serif;
     font-variation-settings:'opsz' 144,'SOFT' 50,'WONK' 1;
-    font-weight:420; font-size:clamp(32px,5.4vw,62px);
-    line-height:1.2; max-width:16em;
+    font-weight:430; line-height:1.16; letter-spacing:.005em;
   }
-  .answer h2 em{font-style:normal; color:var(--papaya)}
-  .answer p{
-    margin-top:34px; max-width:34em; color:var(--dust);
-    font-size:clamp(15px,1.7vw,18px); line-height:1.9; letter-spacing:.02em;
-  }
-  .door p.big{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 120,'SOFT' 40,'WONK' 0;
-    font-weight:380; font-size:clamp(26px,4vw,44px); line-height:1.4;
-  }
-  .door .no-app{
-    margin-top:22px; color:var(--dust); font-size:15px;
-    letter-spacing:.14em; text-transform:uppercase; font-weight:400;
-  }
-  .door .whisper{
-    margin-top:64px; font-family:'Fraunces',serif; font-style:italic;
-    font-variation-settings:'opsz' 60,'SOFT' 80,'WONK' 1;
-    color:var(--gold); font-size:17px; opacity:.85;
-  }
-  .constellation-divider{margin:0 auto; opacity:.6}
-  footer{
-    position:relative; z-index:1; text-align:center;
-    padding:60px 24px 44px; color:var(--dust);
-    font-size:11px; letter-spacing:.34em; text-transform:uppercase;
-    font-weight:400;
-  }
-  footer .ar{
-    font-family:'IBM Plex Sans Arabic',sans-serif; letter-spacing:0;
-    font-size:13px;
-  }
-  .reveal{opacity:0; transform:translateY(26px); transition:opacity 1.15s ease,transform 1.15s ease}
-  .reveal.lit{opacity:1; transform:none}
-  .scroll-cue{
-    position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
-    width:1px; height:52px; overflow:hidden;
-  }
-  .scroll-cue::after{
-    content:''; position:absolute; left:0; top:-40%; width:1px; height:40%;
+  section{padding:96px 0}
+  .prose{color:var(--dust); max-width:44em; font-size:clamp(15.5px,1.7vw,18px)}
+  .prose strong{color:var(--star); font-weight:500}
+  .prose em{color:var(--gold); font-style:italic}
+
+  /* hero */
+  #hero{min-height:92vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding-top:80px}
+  .mark{width:88px; height:88px; margin-bottom:34px}
+  .eyebrow{font-size:11px; letter-spacing:.42em; text-transform:uppercase;
+    color:var(--dust); font-weight:500}
+  h1{font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 0;
+    font-weight:400; font-size:clamp(42px,7.4vw,82px);
+    letter-spacing:.13em; margin:22px 0 6px}
+  .arabic{font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:300;
+    font-size:clamp(20px,3vw,28px); color:var(--gold); margin-bottom:30px}
+  .hero-lines{max-width:36em; color:var(--dust); font-size:clamp(16px,1.9vw,20px)}
+  .hero-lines b{color:var(--star); font-weight:500}
+  .scroll-cue{margin-top:56px; width:1px; height:52px; overflow:hidden; position:relative}
+  .scroll-cue::after{content:''; position:absolute; left:0; top:-40%; width:1px; height:40%;
     background:linear-gradient(to bottom,transparent,var(--gold));
-    animation:fall 2.6s ease-in-out infinite;
+    animation:fall 2.6s ease-in-out infinite}
+  @keyframes fall{60%,100%{top:100%}}
+
+  /* section headings */
+  h2{font-size:clamp(30px,4.6vw,52px); margin-bottom:22px; max-width:18em}
+  .kicker{color:var(--dim); font-size:14px; letter-spacing:.28em;
+    text-transform:uppercase; font-weight:500; margin-bottom:10px}
+
+  /* path diagrams */
+  .paths{margin-top:56px; display:grid; gap:26px}
+  .path-card{
+    background:linear-gradient(180deg,var(--surface),rgba(13,20,36,.4));
+    border:1px solid var(--line); border-radius:18px; padding:34px 34px 40px;
   }
-  @keyframes fall{ 60%,100%{top:100%} }
+  .path-card h3{font-size:12px; letter-spacing:.34em; text-transform:uppercase;
+    font-weight:600; margin-bottom:34px}
+  .path-usual h3{color:var(--dim)}
+  .path-nova h3{color:var(--papaya)}
+  .steps{display:flex; align-items:flex-start; gap:6px}
+  .step{flex:1; min-width:0; position:relative; text-align:center; padding-top:26px}
+  .step::before{ /* connector */
+    content:''; position:absolute; top:8px; left:calc(-50% + 9px); width:100%;
+    height:1px; background:var(--line);
+  }
+  .step:first-child::before{display:none}
+  .dot{position:absolute; top:2px; left:50%; transform:translateX(-50%);
+    width:13px; height:13px; border-radius:50%;
+    background:var(--dim); box-shadow:0 0 0 4px rgba(94,108,135,.12)}
+  .path-usual .step:last-child .dot{border-radius:2px; background:var(--dim)}
+  .path-nova .step::before{background:linear-gradient(90deg,var(--line),rgba(232,197,124,.55))}
+  .path-nova .dot{background:var(--gold); box-shadow:0 0 14px rgba(232,197,124,.45)}
+  .path-nova .step:nth-child(1) .dot{background:var(--papaya); box-shadow:0 0 14px rgba(255,122,61,.5)}
+  .path-nova .step:last-child .dot{
+    width:22px; height:22px; top:-3px; background:var(--gold);
+    clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);
+    border-radius:0; box-shadow:none; filter:drop-shadow(0 0 10px rgba(232,197,124,.8));
+  }
+  .step p{font-size:clamp(11.5px,1.4vw,14.5px); line-height:1.45; color:var(--dust); padding:0 4px}
+  .path-usual .step p{color:var(--dim)}
+  .path-note{margin-top:26px; font-size:14px; color:var(--dim); font-style:italic;
+    font-family:'Fraunces',serif; font-variation-settings:'opsz' 40,'SOFT' 70,'WONK' 1}
+  .path-nova .path-note{color:var(--gold)}
+
+  /* phase cards */
+  .phases{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:52px}
+  .phase{background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:30px 26px 34px; transition:transform .4s ease, border-color .4s ease}
+  .phase:hover{transform:translateY(-4px); border-color:rgba(232,197,124,.35)}
+  .phase svg{width:100%; height:120px; margin-bottom:20px}
+  .phase h3{font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 100,'SOFT' 50,'WONK' 1;
+    font-weight:450; font-size:24px; margin-bottom:6px}
+  .phase .ph-num{font-size:11px; letter-spacing:.34em; color:var(--papaya);
+    text-transform:uppercase; font-weight:600}
+  .phase p{color:var(--dust); font-size:15px}
+
+  /* built for one */
+  .chips{display:flex; flex-wrap:wrap; gap:12px; margin:36px 0 30px}
+  .chip{border:1px solid var(--line); border-radius:999px; padding:9px 20px;
+    font-size:12.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--dust); font-weight:500; background:rgba(13,20,36,.5)}
+  .chip.hot{border-color:rgba(255,122,61,.45); color:var(--papaya)}
+
+  /* outcome */
+  .outcome{text-align:center; padding:120px 0}
+  .outcome .display{font-size:clamp(28px,4.4vw,48px); max-width:21em; margin:0 auto}
+  .outcome .display em{font-style:italic; color:var(--gold)}
+  .outcome p.sub{margin:30px auto 0; max-width:36em; color:var(--dust)}
+
+  /* door */
+  .door{text-align:center; padding:110px 0 130px}
+  .door .big{font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 120,'SOFT' 40,'WONK' 0;
+    font-weight:380; font-size:clamp(26px,4vw,42px); line-height:1.4}
+  .door .no-app{margin-top:18px; color:var(--dust); font-size:14px;
+    letter-spacing:.16em; text-transform:uppercase; font-weight:400}
+  .door .whisper{margin-top:58px; font-family:'Fraunces',serif; font-style:italic;
+    font-variation-settings:'opsz' 60,'SOFT' 80,'WONK' 1;
+    color:var(--gold); font-size:17px; opacity:.85}
+
+  footer{position:relative; z-index:1; text-align:center; padding:40px 22px 44px;
+    color:var(--dim); font-size:11px; letter-spacing:.34em;
+    text-transform:uppercase; font-weight:400; border-top:1px solid var(--line)}
+  footer .ar{font-family:'IBM Plex Sans Arabic',sans-serif; letter-spacing:0; font-size:13px}
+
+  .reveal{opacity:0; transform:translateY(26px);
+    transition:opacity 1s ease,transform 1s ease}
+  .reveal.lit{opacity:1; transform:none}
+
+  @media (max-width:760px){
+    section{padding:72px 0}
+    .phases{grid-template-columns:1fr}
+    .steps{flex-direction:column; gap:0; align-items:stretch}
+    .step{text-align:left; padding:0 0 26px 34px}
+    .step::before{left:9px; top:calc(-100% + 20px); width:1px; height:100%;
+      background:var(--line)}
+    .path-nova .step::before{background:linear-gradient(180deg,var(--line),rgba(232,197,124,.55))}
+    .dot{left:3px; top:6px; transform:none}
+    .path-nova .step:last-child .dot{left:0; top:2px}
+    .step p{padding:0; font-size:15px}
+  }
   @media (prefers-reduced-motion: reduce){
     .reveal{transition:none; opacity:1; transform:none}
     .scroll-cue::after{animation:none}
+    .phase{transition:none}
   }
 </style>
 </head>
@@ -117,50 +173,152 @@
 
   <section id="hero">
     <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Nova Academy mark">
-      <g fill="none" class="bones" stroke-width="2" stroke-linecap="round">
-        <path d="M16 52 L16 12"/><path d="M16 12 L48 52"/><path d="M48 52 L48 24"/>
+      <g transform="rotate(8 32 32)" fill="#E8C57C">
+        <path d="M32 4 L35.2 28 L32 32 L28.8 28 Z"/>
+        <path d="M32 60 L28.8 36 L32 32 L35.2 36 Z"/>
+        <path d="M4 32 L28 28.8 L32 32 L28 35.2 Z"/>
+        <path d="M60 32 L36 35.2 L32 32 L36 28.8 Z"/>
+        <path d="M13 13 L28.6 28.6 L32 32 L25.8 25.8 Z" opacity=".72"/>
+        <path d="M51 51 L35.4 35.4 L32 32 L38.2 38.2 Z" opacity=".72"/>
+        <path d="M13 51 L28.6 35.4 L32 32 L25.8 38.2 Z" opacity=".45"/>
+        <path d="M51 13 L35.4 28.6 L32 32 L38.2 25.8 Z" opacity=".45"/>
       </g>
-      <g>
-        <circle class="node" cx="16" cy="52" r="3"/>
-        <circle class="node" cx="16" cy="12" r="2.4"/>
-        <circle class="node" cx="32" cy="32" r="1.7"/>
-        <circle class="node" cx="48" cy="52" r="3"/>
-        <path class="nova" d="M48 2 C49.6 7.4 51.6 9.4 57 11 C51.6 12.6 49.6 14.6 48 20 C46.4 14.6 44.4 12.6 39 11 C44.4 9.4 46.4 7.4 48 2 Z" transform="rotate(12 48 11)"/>
-      </g>
+      <circle cx="47" cy="15" r="2.6" fill="#FF7A3D"/>
     </svg>
     <p class="eyebrow">A private academy &middot; By invitation only</p>
     <h1>NOVA&nbsp;ACADEMY</h1>
     <p class="arabic" lang="ar" dir="rtl">نوفا</p>
+    <p class="hero-lines">Preparation for the real world, <b>by the real world</b>.<br>
+    One program per student. Built around who they are.</p>
     <div class="scroll-cue" aria-hidden="true"></div>
   </section>
 
   <section>
-    <p class="q reveal">Will the world be the same<br>after three more years<br><span class="dim">at this speed?</span></p>
+    <p class="kicker reveal">Why we exist</p>
+    <h2 class="display reveal">The old question is broken.</h2>
+    <p class="prose reveal"><strong>&ldquo;What do you want to be when you grow up?&rdquo;</strong>
+    Children hear it for years, with nothing behind it: no context, no
+    experience, no honest way to answer. Their interests change with
+    every season of growing up, and nobody minds. Until suddenly it is
+    high school, and the question turns permanent. Math or history?
+    Pick. Then a major. Then a life, tied to a decision made
+    half-blind at eighteen.</p>
+
+    <div class="paths">
+      <div class="path-card path-usual reveal">
+        <h3>The usual path</h3>
+        <div class="steps">
+          <div class="step"><span class="dot"></span><p>12 years of classrooms</p></div>
+          <div class="step"><span class="dot"></span><p>One forced pick in high school</p></div>
+          <div class="step"><span class="dot"></span><p>4 years of theory</p></div>
+          <div class="step"><span class="dot"></span><p>Tied to it for life</p></div>
+        </div>
+        <p class="path-note">A lifetime decided by a guess.</p>
+      </div>
+      <div class="path-card path-nova reveal">
+        <h3>The Nova way</h3>
+        <div class="steps">
+          <div class="step"><span class="dot"></span><p>Try everything, by hand</p></div>
+          <div class="step"><span class="dot"></span><p>Interests grow through practice</p></div>
+          <div class="step"><span class="dot"></span><p>The field reveals itself</p></div>
+          <div class="step"><span class="dot"></span><p>Years of intense, real training</p></div>
+          <div class="step"><span class="dot"></span><p>Mastery, lived not lectured</p></div>
+        </div>
+        <p class="path-note">A lifetime discovered by doing.</p>
+      </div>
+    </div>
   </section>
 
   <section>
-    <p class="q reveal">Do institutions designed in the 1950s<br>still fit the world their graduates<br><span class="dim">will actually enter?</span></p>
+    <p class="kicker reveal">The journey</p>
+    <h2 class="display reveal">How a nova is made.</h2>
+    <p class="prose reveal">Nobody here is asked to guess their future.
+    They <em>practice</em> their way into it, in three movements.</p>
+
+    <div class="phases">
+      <div class="phase reveal">
+        <svg viewBox="0 0 200 120" aria-hidden="true">
+          <g fill="#8CA3C8">
+            <circle cx="28" cy="72" r="2.6"/><circle cx="58" cy="30" r="2"/>
+            <circle cx="92" cy="86" r="2.4"/><circle cx="118" cy="42" r="1.8"/>
+            <circle cx="150" cy="70" r="2.6"/><circle cx="172" cy="26" r="1.8"/>
+            <circle cx="70" cy="58" r="1.6"/><circle cx="136" cy="94" r="1.6"/>
+          </g>
+        </svg>
+        <p class="ph-num">Movement 01</p>
+        <h3>Scan</h3>
+        <p>Try everything. Business, land, machines, media, markets,
+        people. Real places, real hands, and enough time in each to
+        truly know it. Never one taste and gone.</p>
+      </div>
+      <div class="phase reveal">
+        <svg viewBox="0 0 200 120" aria-hidden="true">
+          <g fill="none" stroke="#8CA3C8" stroke-width="1" opacity=".5">
+            <path d="M40 84 L84 52 L128 68 L164 36"/>
+          </g>
+          <g fill="#F4F2EB">
+            <circle cx="40" cy="84" r="2.4"/><circle cx="84" cy="52" r="2.8"/>
+            <circle cx="128" cy="68" r="2.4"/>
+          </g>
+          <circle cx="164" cy="36" r="5" fill="#E8C57C" opacity=".85"/>
+          <circle cx="164" cy="36" r="10" fill="none" stroke="#E8C57C" stroke-width="1" opacity=".35"/>
+        </svg>
+        <p class="ph-num">Movement 02</p>
+        <h3>Brighten</h3>
+        <p>Interests are not declared, they are discovered. Whatever
+        keeps pulling a student back earns deeper time, harder
+        projects, real stakes.</p>
+      </div>
+      <div class="phase reveal">
+        <svg viewBox="0 0 200 120" aria-hidden="true">
+          <g transform="rotate(8 100 60)" fill="#E8C57C">
+            <path d="M100 8 L104 52 L100 60 L96 52 Z"/>
+            <path d="M100 112 L96 68 L100 60 L104 68 Z"/>
+            <path d="M48 60 L92 56 L100 60 L92 64 Z"/>
+            <path d="M152 60 L108 64 L100 60 L108 56 Z"/>
+            <path d="M66 26 L94 54 L100 60 L88 48 Z" opacity=".7"/>
+            <path d="M134 94 L106 66 L100 60 L112 72 Z" opacity=".7"/>
+          </g>
+          <circle cx="128" cy="30" r="3" fill="#FF7A3D"/>
+        </svg>
+        <p class="ph-num">Movement 03</p>
+        <h3>Nova</h3>
+        <p>The domain locks. Training turns intense and real: real
+        scenarios, real responsibilities, real results. Not lectures.
+        Practice.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="answer">
-    <h2 class="reveal">A <em>new breed</em> of preparation for youth.</h2>
-    <p class="reveal">Not twelve years of school and four of university. The real
-    world, learned from inside it: by making, by doing, by building,
-    with the people who run it.</p>
+  <section>
+    <p class="kicker reveal">One student at a time</p>
+    <h2 class="display reveal">A program built for one.</h2>
+    <p class="prose reveal">No two students receive the same program.
+    It is designed around <strong>who the student actually is</strong>,
+    and it bends around them, never the reverse.</p>
+    <div class="chips reveal">
+      <span class="chip hot">Personality</span><span class="chip">Abilities</span>
+      <span class="chip">Capability</span><span class="chip hot">Pace</span>
+      <span class="chip">Interests</span><span class="chip">Strengths</span>
+      <span class="chip hot">Character</span>
+    </div>
+    <p class="prose reveal">And beside the exploration, always running:
+    <strong>the general knowledge of real life</strong> that school never
+    taught. Money and how it moves. People and how they work. How
+    companies, governments and the world actually run. Skills made
+    with the hands, not memorized for a test.</p>
+  </section>
+
+  <section class="outcome">
+    <p class="display reveal">By the time their generation graduates,
+    a Nova student has spent <em>years inside their field</em>. Real
+    work. Real responsibility. Real results.</p>
+    <p class="sub reveal">When the two finally meet in the real world,
+    one of them is just beginning.</p>
   </section>
 
   <section class="door">
-    <svg class="constellation-divider reveal" width="180" height="40" viewBox="0 0 180 40" aria-hidden="true">
-      <g fill="none" stroke="#8CA3C8" stroke-width="1" opacity=".55">
-        <path d="M14 28 L58 14 L104 24 L166 10"/>
-      </g>
-      <g fill="#F4F2EB">
-        <circle cx="14" cy="28" r="2.4"/><circle cx="58" cy="14" r="1.7"/>
-        <circle cx="104" cy="24" r="2"/>
-      </g>
-      <path fill="#E8C57C" d="M166 2 C167 6.4 168.6 8 173 9 C168.6 10 167 11.6 166 16 C165 11.6 163.4 10 159 9 C163.4 8 165 6.4 166 2 Z"/>
-    </svg>
-    <p class="big reveal" style="margin-top:56px">Enrollment is by invitation.</p>
+    <p class="big reveal">Enrollment is by invitation.</p>
     <p class="no-app reveal">There is no application</p>
     <p class="whisper reveal">If you are meant to find us, you already have.</p>
   </section>
@@ -175,7 +333,7 @@
   var c=document.getElementById('sky'), x=c.getContext('2d'),
       DPR=Math.min(window.devicePixelRatio||1,2), stars=[], W=0, H=0,
       reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-      meteor=null, nextMeteor=6000+Math.random()*6000, last=0;
+      meteor=null, nextMeteor=9000+Math.random()*8000, last=0;
   function size(){
     W=window.innerWidth; H=window.innerHeight;
     c.width=W*DPR; c.height=H*DPR; c.style.width=W+'px'; c.style.height=H+'px';
@@ -183,14 +341,12 @@
   }
   function seed(){
     stars=[];
-    var n=Math.round(W*H/9000);
+    var n=Math.round(W*H/14000);
     for(var i=0;i<n;i++){
-      stars.push({
-        x:Math.random()*W, y:Math.random()*H,
-        r:Math.random()<.85?Math.random()*.9+.35:Math.random()*1.5+.9,
+      stars.push({x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()<.85?Math.random()*.8+.3:Math.random()*1.3+.8,
         p:Math.random()*Math.PI*2, s:.4+Math.random()*1.1,
-        gold:Math.random()<.06
-      });
+        gold:Math.random()<.06});
     }
   }
   function frame(t){
@@ -198,24 +354,24 @@
     x.clearRect(0,0,W,H);
     for(var i=0;i<stars.length;i++){
       var st=stars[i],
-          tw=reduced?0.75:(0.55+0.45*Math.sin(st.p+t/1000*st.s));
-      x.globalAlpha=Math.max(.08,tw*.9);
+          tw=reduced?0.7:(0.5+0.5*Math.sin(st.p+t/1000*st.s));
+      x.globalAlpha=Math.max(.06,tw*.8);
       x.fillStyle=st.gold?'#E8C57C':'#F4F2EB';
       x.beginPath(); x.arc(st.x,st.y,st.r,0,7); x.fill();
     }
     if(!reduced){
       nextMeteor-=dt;
       if(nextMeteor<=0 && !meteor){
-        var sx=Math.random()*W*.7+W*.15, sy=Math.random()*H*.3;
-        meteor={x:sx,y:sy,vx:5+Math.random()*3,vy:2.4+Math.random()*1.4,life:1};
-        nextMeteor=9000+Math.random()*9000;
+        meteor={x:Math.random()*W*.7+W*.15, y:Math.random()*H*.25,
+          vx:5+Math.random()*3, vy:2.4+Math.random()*1.4, life:1};
+        nextMeteor=12000+Math.random()*10000;
       }
       if(meteor){
         meteor.x+=meteor.vx; meteor.y+=meteor.vy; meteor.life-=.016;
         if(meteor.life>0){
           var g=x.createLinearGradient(meteor.x-meteor.vx*12,meteor.y-meteor.vy*12,meteor.x,meteor.y);
           g.addColorStop(0,'rgba(232,197,124,0)');
-          g.addColorStop(1,'rgba(232,197,124,'+(0.7*meteor.life)+')');
+          g.addColorStop(1,'rgba(232,197,124,'+(0.6*meteor.life)+')');
           x.globalAlpha=1; x.strokeStyle=g; x.lineWidth=1.2;
           x.beginPath();
           x.moveTo(meteor.x-meteor.vx*12,meteor.y-meteor.vy*12);
@@ -231,7 +387,7 @@
 
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('lit'); });
-  },{threshold:.25});
+  },{threshold:.2});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 })();
 </script>
