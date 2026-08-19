@@ -56,6 +56,13 @@
     font-size:clamp(20px,3vw,28px); color:var(--gold); margin-bottom:30px}
   .hero-lines{max-width:36em; color:var(--dust); font-size:clamp(16px,1.9vw,20px)}
   .hero-lines b{color:var(--star); font-weight:500}
+  .portal-link{position:fixed; top:20px; right:22px; z-index:5;
+    font-size:10.5px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--dust); text-decoration:none; border:1px solid var(--line);
+    border-radius:999px; padding:9px 18px; background:rgba(7,11,20,.55);
+    backdrop-filter:blur(6px); font-weight:500;
+    transition:color .3s,border-color .3s}
+  .portal-link:hover{color:var(--gold); border-color:rgba(232,197,124,.45)}
   .scroll-cue{margin-top:56px; width:1px; height:52px; overflow:hidden; position:relative}
   .scroll-cue::after{content:''; position:absolute; left:0; top:-40%; width:1px; height:40%;
     background:linear-gradient(to bottom,transparent,var(--gold));
@@ -169,6 +176,7 @@
 </head>
 <body>
 <canvas id="sky" aria-hidden="true"></canvas>
+<a class="portal-link" href="/portal/">Student&nbsp;Portal</a>
 <main>
 
   <section id="hero">
@@ -191,6 +199,18 @@
     <p class="hero-lines">Preparation for the real world, <b>by the real world</b>.<br>
     One program per student. Built around who they are.</p>
     <div class="scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <section class="elite">
+    <p class="kicker reveal">Not for everyone</p>
+    <h2 class="display reveal">An exclusive program for the future
+    masters of their fields.</h2>
+    <p class="prose reveal">Nova Academy is not an average academy, and
+    it is nothing like a university. It is an <strong>exclusive,
+    invitation-only program</strong> for an elite few: candidates
+    prepared to lead, build and master their fields in a world that is
+    changing faster than the institutions that claim to teach it.
+    <em>We operate differently, deliberately, and quietly.</em></p>
   </section>
 
   <section>
@@ -318,14 +338,15 @@
   </section>
 
   <section class="door">
-    <p class="big reveal">Enrollment is by invitation.</p>
+    <p class="big reveal">Enrollment is by invitation only.</p>
     <p class="no-app reveal">There is no application</p>
     <p class="whisper reveal">If you are meant to find us, you already have.</p>
   </section>
 
 </main>
 <footer>
-  NOVA&nbsp;ACADEMY &nbsp;&middot;&nbsp; <span class="ar" lang="ar" dir="rtl">نوفا</span> &nbsp;&middot;&nbsp; United&nbsp;Arab&nbsp;Emirates
+  NOVA&nbsp;ACADEMY &nbsp;&middot;&nbsp; <span class="ar" lang="ar" dir="rtl">نوفا</span> &nbsp;&middot;&nbsp; United&nbsp;Arab&nbsp;Emirates<br>
+  <a href="mailto:info@novaacademy.ae" style="color:inherit; text-decoration:none; letter-spacing:.18em">info@novaacademy.ae</a>
 </footer>
 
 <script>

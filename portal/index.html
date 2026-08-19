@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Portal · Nova Academy</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23070B14%22%2F%3E%3Cg%20transform%3D%22rotate(8%2032%2032)%22%20fill%3D%22%23E8C57C%22%3E%3Cpath%20d%3D%22M32%206%20L35%2028%20L32%2032%20L29%2028%20Z%22%2F%3E%3Cpath%20d%3D%22M32%2058%20L29%2036%20L32%2032%20L35%2036%20Z%22%2F%3E%3Cpath%20d%3D%22M6%2032%20L28%2029%20L32%2032%20L28%2035%20Z%22%2F%3E%3Cpath%20d%3D%22M58%2032%20L36%2035%20L32%2032%20L36%2029%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#070B14; --surface:#0D1424; --star:#F4F2EB; --gold:#E8C57C;
+    --papaya:#FF7A3D; --dust:#8CA3C8; --line:#1C2740}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--night); color:var(--star);
+    font-family:'Archivo',system-ui,sans-serif; font-weight:300;
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:24px; text-align:center}
+  .card{max-width:420px; width:100%; background:var(--surface);
+    border:1px solid var(--line); border-radius:20px; padding:52px 40px}
+  .mark{width:56px; height:56px; margin-bottom:26px}
+  h1{font-family:'Fraunces',serif;
+    font-variation-settings:'opsz' 100,'SOFT' 40,'WONK' 0;
+    font-weight:420; font-size:26px; letter-spacing:.06em; margin-bottom:8px}
+  .eyebrow{font-size:10px; letter-spacing:.4em; text-transform:uppercase;
+    color:var(--dust); font-weight:500; margin-bottom:24px}
+  p{color:var(--dust); font-size:15px; line-height:1.75}
+  .hint{margin-top:30px; font-family:'Fraunces',serif; font-style:italic;
+    font-variation-settings:'opsz' 40,'SOFT' 80,'WONK' 1;
+    color:var(--gold); font-size:14.5px; opacity:.9}
+  a.back{display:inline-block; margin-top:36px; color:var(--dust);
+    font-size:11px; letter-spacing:.28em; text-transform:uppercase;
+    text-decoration:none; border-bottom:1px solid var(--line);
+    padding-bottom:3px}
+  a.back:hover{color:var(--gold); border-color:rgba(232,197,124,.45)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <g transform="rotate(8 32 32)" fill="#E8C57C">
+        <path d="M32 4 L35.2 28 L32 32 L28.8 28 Z"/>
+        <path d="M32 60 L28.8 36 L32 32 L35.2 36 Z"/>
+        <path d="M4 32 L28 28.8 L32 32 L28 35.2 Z"/>
+        <path d="M60 32 L36 35.2 L32 32 L36 28.8 Z"/>
+        <path d="M13 13 L28.6 28.6 L32 32 L25.8 25.8 Z" opacity=".72"/>
+        <path d="M51 51 L35.4 35.4 L32 32 L38.2 38.2 Z" opacity=".72"/>
+      </g>
+      <circle cx="47" cy="15" r="2.6" fill="#FF7A3D"/>
+    </svg>
+    <p class="eyebrow">Nova Academy</p>
+    <h1>Student Portal</h1>
+    <p>Access is reserved for enrolled students. Credentials are
+    personal and arrive with your enrollment.</p>
+    <p class="hint">If you have received yours, watch your inbox:
+    the doors open soon.</p>
+    <a class="back" href="/">Return</a>
+  </div>
+</body>
+</html>
